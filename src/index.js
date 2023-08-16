@@ -35,12 +35,23 @@ const myPitcher = (
   return state;
 };
 
+const myCatcher = (
+    state = "Elston Howard",
+    action
+  ) => {
+    if (action.type === "ADD_PLATE") {
+      return action.payload;
+    }
+    return state;
+  };
+
 /** TODO: Create store */
 const storeInstance = createStore(
   combineReducers({
     listOfPitchers,
     listOfCatchers,
     myPitcher,
+    myCatcher,
   })
 );
 

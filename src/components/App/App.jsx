@@ -5,6 +5,7 @@
   import PitcherForm from "../PitcherForm/PitcherForm";
   import CatcherForm from "../CatcherForm/CatcherForm";
   import OnTheMound from "../OnTheMound/OnTheMound";
+  import BehindThePlate from "../BehindThePlate/BehindThePlate";
 
 
   function App() {
@@ -31,9 +32,8 @@
     return (
       <div>
         <h1>Redux Baseball Pitchers</h1>
-        {/* <h2>On the Mound: {currentPitcher}</h2> */}
         <OnTheMound/>
-        <h2>Behind the Plate: {currentCatcher}</h2>
+        <BehindThePlate/>
         <TotalPitchers/>
         <TotalCatchers/>
         <h3>All Pitchers</h3>
@@ -52,7 +52,10 @@
         <CatcherForm/>
         <ul>
           {listOfCatchers.map((catcher, index) => (
-            <li key={index} onClick={() => setCurrentCatcher(catcher)}>{catcher}</li>
+            <li key={index} onClick={() => dispatch({
+              type: "ADD_MOUND",
+              payload: catcher,
+            })}>{catcher}</li>
           ))}
         </ul>
       </div>
