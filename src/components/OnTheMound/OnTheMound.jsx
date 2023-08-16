@@ -1,13 +1,16 @@
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 
 
 function OnTheMound() {
-      const [currentPitcher, setCurrentPitcher] = useState("Maud Nelson");
+      const myPitcher = useSelector((store) => store.myPitcher);
+
 
 
     return (
         <>
-        <h2>On the Mound: {currentPitcher}</h2>
+        <h2>On the Mound: {myPitcher}</h2>
         </>
     )
 }

@@ -25,22 +25,22 @@ const listOfCatchers = (
   return state;
 };
 
-// const onTheMound = (
-//   state = [],
-//   action
-// ) => {
-//   if (action.type === "ADD_MOUND") {
-//     return [...state, action.payload];
-//   }
-//   return state;
-// };
+const myPitcher = (
+  state = "Maud Nelson",
+  action
+) => {
+  if (action.type === "ADD_MOUND") {
+    return action.payload;
+  }
+  return state;
+};
 
 /** TODO: Create store */
 const storeInstance = createStore(
   combineReducers({
     listOfPitchers,
     listOfCatchers,
-    // onTheMound,
+    myPitcher,
   })
 );
 
