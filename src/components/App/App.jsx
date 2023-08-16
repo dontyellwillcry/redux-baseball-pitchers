@@ -4,6 +4,7 @@ import TotalPitchers from "../TotalPitchers/TotalPitchers";
 import TotalCatchers from "../TotalCatchers/TotalCatchers";
 import PitcherForm from "../PitcherForm/PitcherForm";
 import CatcherForm from "../CatcherForm/CatcherForm";
+import OnTheMound from "../OnTheMound/OnTheMound";
 
 function App() {
   const [currentPitcher, setCurrentPitcher] = useState("Maud Nelson");
@@ -16,6 +17,9 @@ function App() {
 
   const listOfCatchers = useSelector((store) => store.listOfCatchers);
 
+  // const OnTheMound = useSelector((store) => store.OnTheMound);
+
+
   const dispatch = useDispatch();
 
   
@@ -27,7 +31,8 @@ function App() {
   return (
     <div>
       <h1>Redux Baseball Pitchers</h1>
-      <h2>On the Mound: {currentPitcher}</h2>
+      {/* <h2>On the Mound: {currentPitcher}</h2> */}
+      <OnTheMound/>
       <h2>Behind the Plate: {currentCatcher}</h2>
       <TotalPitchers/>
       <TotalCatchers/>
@@ -35,16 +40,16 @@ function App() {
       
       <PitcherForm/>
       <ul>
-        {listOfPitchers.map((pitcher) => (
-          <li onClick={() => setCurrentPitcher(pitcher)}>{pitcher}</li>
+        {listOfPitchers.map((pitcher, index) => (
+          <li key={index} onClick={() => setCurrentPitcher(pitcher)}>{pitcher}</li>
         ))}
       </ul>
       <h3>All Catchers</h3>
       
       <CatcherForm/>
       <ul>
-        {listOfCatchers.map((catcher) => (
-          <li onClick={() => setCurrentCatcher(catcher)}>{catcher}</li>
+        {listOfCatchers.map((catcher, index) => (
+          <li key={index} onClick={() => setCurrentCatcher(catcher)}>{catcher}</li>
         ))}
       </ul>
     </div>
